@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/help'
+  get 'static_pages/faq'
+  get 'static_pages/about'
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
-
+  resources :about, only: [:index]
+  
   resource :cart, only: [:show] do
     post   :add_item
     post   :remove_item
